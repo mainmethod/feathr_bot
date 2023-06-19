@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+
+  api:
+    build: .
+    image: mainmethod22/feathr_bot:latest
+    container_name: feathr_bot
+    ports:
+      - 5000:5000
+    command: poetry run python -m flask run --host=0.0.0.0
+    volumes:
+      - .:/app
+    env_file:
+      .env.local
